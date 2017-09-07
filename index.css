@@ -1,0 +1,29 @@
+
+#bForm{
+	background-color: lightblue;
+	width: 50%;
+	height: 300px;
+}
+
+#fName{
+	margin: 10px; 
+
+}
+
+#lName{
+	margin: 10px; 
+}
+
+#sId{
+	margin: 10px; 
+}
+
+
+#txt{
+	margin: 10px; 
+
+}
+
+#but{
+	margin: 10px; 
+}

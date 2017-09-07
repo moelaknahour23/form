@@ -1,0 +1,167 @@
+<!-- Mohammad Laknahour -->
+<!-- Lab# 2 -->
+<!-- Date: 08/15/2017 -->
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+
+		<title>Form</title>
+
+		<style type="text/css">
+			#bForm{
+				background-color: lightblue;
+				width: 50%;
+				height: 305px;
+			}
+
+			#fName{
+				margin: 10px; 
+
+			}
+
+			#lName{
+				margin: 10px; 
+			}
+
+			#sId{
+				margin: 10px; 
+			}
+
+
+			#txt{
+				margin: 10px; 
+
+			}
+
+			#but{
+				margin: 10px; 
+			}
+		</style>		
+
+
+		<script type="text/javascript">
+				var button;
+
+				function buttonrest(){
+
+					reloadPage();
+				}
+
+				function background_Color(){
+
+					document.body.style.backgroundColor ="Red"; 
+				}
+
+				function buttonClicked(){
+				var txt1= document.getElementById("fName").value;
+				var txt2= document.getElementById("lName").value;
+				var txt3= document.getElementById("sId").value;
+				var txt4= document.getElementById("TextArea").value;
+				var tokens = txt4.split(" ");
+
+
+
+				if(!(txt1).match(/^[A-Z][A-Za-z]+$/)){
+
+
+					document.getElementById("printTxt1").innerHTML = "Please enter your First Name, with the first letter capitalized";
+					background_Color();
+					}
+
+				if(!(txt2).match(/^[A-Z][A-Za-z]+$/))  {
+
+					document.getElementById("printTxt2").innerHTML = "Please enter your last Name, with the first letter capitalized";
+					background_Color();
+				}    
+
+
+				if(!(txt3).match(/^\d{9}$/))  {
+
+					document.getElementById("printTxt3").innerHTML = "Please enter a 9 digit Student ID Number";
+					background_Color();
+				}          
+
+
+				if(tokens.length > 25){
+					
+					document.getElementById("printTxt4").innerHTML = "Message should not be more than 25 words."; 
+					background_Color();
+					
+				}
+
+
+				if( ((txt1).match(/^[A-Z][A-Za-z]+$/)) && ((txt2).match(/^[A-Z][A-Za-z]+$/)) && ((txt3).match(/^\d{9}$/)) && (tokens.length <= 25)) {
+
+					document.getElementById("printTxt5").innerHTML= 
+					("<br>First Name: " + txt1 + "<br> Last Name: " + txt2 + 
+					"<br> Student ID Number: "+ txt3 +"<br> Message: "+ txt4+"<br><br> Success!"); 
+
+					}	    
+				 
+				}
+
+
+				function reloadPage(){
+				   window.location.reload();
+				}
+
+
+				function start(){
+					button = document.getElementById("but");
+					button2 = document.getElementById("res");
+
+					button.addEventListener("click", buttonClicked, false);
+					button2.addEventListener("click", buttonrest, false);
+				}
+
+
+				window.addEventListener( "load", start, false);
+			</script>
+	</head>
+
+
+
+	<body>
+		<form >
+			<fieldset id="bForm">
+				<legend>Form</legend>
+
+				<div >
+					<input type="text" id="fName" name="fName" placeholder="First Name...">
+				</div>
+
+				<div >
+					<input type="text" id="lName" name="lName" placeholder="Last Name...">
+				</div>
+
+				<div>
+					<input type="text"  id="sId" name="sId" placeholder="Student ID...">
+				</div>
+
+				<div >
+					<textarea type="text" id="TextArea" placeholder="Type..." rows="10" cols="40"></textarea>
+				</div>
+
+				<div >
+					<input id="but" type="button" value="submit" >
+					<input id="res" type="reset" name="Clear">
+				</div>
+				<div>
+					<div id="printTxt1"> </div>
+					<div id="printTxt2"> </div>
+					<div id="printTxt3"> </div>
+					<div id="printTxt4"> </div>
+					<div ><h4 id="printTxt5"> </h4></div>
+				</div>
+				
+			</fieldset>
+		</form>
+
+	</body>
+
+
+
+</html>
